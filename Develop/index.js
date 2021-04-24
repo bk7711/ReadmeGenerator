@@ -1,8 +1,10 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+
 // TODO: Create an array of questions for user input
-// const questions = [
+// Function to initialize the app
+function init(){     
     inquirer.prompt([
         {
             type:'input',
@@ -54,46 +56,44 @@ const fs = require('fs');
             name:'linkedin'
         }
     ])
-    .then(({username, email, title, description, installation, usage, license, credits, contribute})=> {
-        const data =`# ${title}
-        ## Table of Contents
-        - [Installation](#installation)
-        - [Usage](#usage)
-        - [Credits](#credits)
-        - [License](#license)
-        - [Contact](#contact)
-        ## Description
-        ${description}
-        ## Installation
-        ${installation}
-        ## Usage
-        ${usage}
-        ## Credits
-        ${credits}
-        ## License
-        ${license}
-        ## How to Contribute
-        ${contribute}
 
-        # Contact
-        - Github: ${username}
-        - LinkedIn: ${linkedin}
-        - E-mail: ${email}`;
+    .then(({username, email, title, description, installation, usage, license, credits, contribute,linkedin})=> {
+        console.log (username);
+        const data =`# ${title}
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Contact](#contact)
+## Description
+${description}
+## Installation
+${installation}
+## Usage
+${usage}
+## Credits 
+${credits}
+## License
+${license}
+## How to Contribute
+${contribute}
+
+# Contact
+- Github: ${username}
+- LinkedIn: ${linkedin}
+- E-mail: ${email}`;
 
         writeToFile(title, data);
     });
-
+}
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`./${fileName.toLowerCase().split('').join('')}.md`,data,(err)=>
+    fs.writeFile(`./${fileName.toLowerCase().split('').join('')}.md`,data, err=>
     err ? console.error(err): console.log ('Success!')
     )};
 
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
-
-
+// 
+// Function call to initialize app
+init();
