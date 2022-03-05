@@ -23,4 +23,4 @@ To contribute to this project, please fork and create your own branch. Feel free
 # Contact
 - Github: bk7711
 - LinkedIn: linkedin.com/in/carolyn_blackwell
-- E-mail: bmathematics@gmail.com
+- E-mail: cblackideas@gmail.com
